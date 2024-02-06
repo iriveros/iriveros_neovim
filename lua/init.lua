@@ -4,6 +4,21 @@ vim.g.loaded_netrwPlugin = 1
 vim.cmd[[set number]]
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+print(lazypath)
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins")
+
 vim.opt.termguicolors = true
 vim.o.background = "dark"
 vim.cmd[[colorscheme edge]]

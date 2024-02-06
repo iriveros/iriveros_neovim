@@ -139,8 +139,9 @@ require("neo-tree").setup({
 			never_show_by_pattern = { -- uses glob style patterns
 				--".null-ls_*",
 			},
+			follow_current_file = enabled,
 		},
-		follow_current_file = false, -- This will find and focus the file in the active buffer every
+		 -- This will find and focus the file in the active buffer every
 																 -- time the current file is changed while the tree is open.
 		group_empty_dirs = false, -- when true, empty folders will be grouped together
 		hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
@@ -167,8 +168,7 @@ require("neo-tree").setup({
 		}
 	},
 	buffers = {
-		follow_current_file = true, -- This will find and focus the file in the active buffer every
-																 -- time the current file is changed while the tree is open.
+		follow_current_file = enabled, -- This will find and focus the file in the active buffer every
 		group_empty_dirs = true, -- when true, empty folders will be grouped together
 		show_unloaded = true,
 		window = {
